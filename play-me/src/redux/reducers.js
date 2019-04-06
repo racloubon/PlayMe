@@ -8,17 +8,17 @@ const initialState = {
   searchResults: [],
 }
 
-const search = (state = initialState.searchResults, action) => {
+const searchResults = (state = initialState.searchResults, action) => {
   switch (action.type) {
     case SET_SEARCH_RESULTS:
-      return [...state, action.searchResults]
+      return action.searchResults.results
     default:
       return state;
   }
 }
 
 const reducer = combineReducers({
-  search
+  searchResults,
 });
 
 export default reducer;

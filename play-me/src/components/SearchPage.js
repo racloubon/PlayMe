@@ -14,11 +14,10 @@ class SearchPage extends Component {
   }
 
   render() {
-    console.log(this.props, 'search page props')
     return (
       <div className="searchPage">
         <SearchBar search={this.search}/>
-        <SearchResults />
+        <SearchResults data={this.props.searchResults}/>
       </div>
     );
   }
@@ -29,10 +28,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setSearchResults: searchResults => dispatch(setSearchResults(searchResults))
+  setSearchResults: results => dispatch(setSearchResults(results))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
