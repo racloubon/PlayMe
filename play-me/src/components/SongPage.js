@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './SongPage.css';
 import { connect } from 'react-redux';
 
@@ -22,6 +23,9 @@ class SongPage extends Component {
         <div className="audioButtons">
             <button onClick={() => audio.play()}>Play</button>
             <button onClick={() => audio.pause()}>Pause</button>
+        </div>
+        <div className="backButton">
+          <Link to={`/`}><button> Back to Search Results</button></Link>
         </div>
       </div>
     );
