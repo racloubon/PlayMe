@@ -6,6 +6,8 @@ class SongPage extends Component {
 
   render() {
     const { selectedSong } = this.props;
+    const audio = new Audio();
+    audio.src = selectedSong.previewUrl
     return (
       <div className="songPage">
         <div className="songInfo">
@@ -18,7 +20,8 @@ class SongPage extends Component {
           <h1>{selectedSong.trackTimeMillis}</h1>
         </div>
         <div className="audioButtons">
-            {selectedSong.previewUrl}
+            <button onClick={() => audio.play()}>Play</button>
+            <button onClick={() => audio.pause()}>Pause</button>
         </div>
       </div>
     );
