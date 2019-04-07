@@ -6,7 +6,7 @@ class SearchResults extends Component {
   render() {
     return (
       <div className="searchResults">
-        {this.props.data.map((song, index) => <SearchResultsItem key={index} song={song}/>)}
+        {this.props.data.map((song, index) => song.wrapperType === 'track' ? <SearchResultsItem key={index} song={song}/> : null)}
       </div>
     );
   }
