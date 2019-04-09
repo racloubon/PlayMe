@@ -12,7 +12,7 @@ class App extends Component {
         Play Me
         <Router>
           <Route path="/" exact component={SearchPage} />
-          <Route path="/song/" component={SongPage} />
+          <Route path="/song/:id" component={SongPage} />
         </Router>
       </div>
     );
