@@ -22,7 +22,7 @@ class SearchResultsItemDetail extends Component {
         <h3>{millisecondsToMinutes(song.trackTimeMillis)}</h3>
         <h3>${song.trackPrice}</h3>
         <img src={song.artworkUrl100} alt={song.trackName}/>
-        <h1><Link to={`/song`} onClick={() => setSelectedSong(song)}> PLAY ME </Link></h1>
+        <h1><Link to={`/song/${song.trackId}`} onClick={() => setSelectedSong(song)}> PLAY ME </Link></h1>
 
       </div>
     );

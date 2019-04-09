@@ -7,12 +7,6 @@ import SearchResults from './SearchResults';
 
 class SearchPage extends Component {
 
-  search = (term) => {
-    fetch(`https://itunes.apple.com/search?term=${term}`)
-      .then(response => response.json())
-      .then(response => this.props.setSearchResults(response))
-  }
-
   sort = (criterion) => {
     if (criterion === 'genre') this.props.sortSearchResultsByGenre([...this.props.searchResults])
     else if (criterion === 'price') this.props.sortSearchResultsByPrice([...this.props.searchResults])
@@ -20,9 +14,10 @@ class SearchPage extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="searchPage">
-        <SearchBar search={this.search}/>
+        <SearchBar search={this.props.search}/>
         <SearchResults sort={this.sort} data={this.props.searchResults}/>
       </div>
     );

@@ -6,10 +6,16 @@ import ShareButtons from './ShareButtons.js'
 
 class SongPage extends Component {
 
+  fetchSong = (id) => {
+
+  }
+
   render() {
     const { selectedSong } = this.props;
+
     const audio = new Audio();
     audio.src = selectedSong.previewUrl
+
     return (
       <div className="songPage">
         <div className="songInfo">
