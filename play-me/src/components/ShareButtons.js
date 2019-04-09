@@ -4,12 +4,10 @@ import config from '../config.js'
 
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   TwitterShareButton,
   RedditShareButton,
   EmailShareButton,
   FacebookIcon,
-  GooglePlusIcon,
   TwitterIcon,
   RedditIcon,
   EmailIcon,
@@ -17,9 +15,9 @@ import {
 
 class ShareButtons extends Component {
 
-
   render() {
-    console.log()
+    const { trackId } = this.props
+    const url = `${config.host}/song/${trackId}`
 
     return (
       <div>
@@ -28,40 +26,33 @@ class ShareButtons extends Component {
         </div>
         <div className="shareButtons">
           <FacebookShareButton
-            url={`${config.host}`}
+            url={url}
             quote={"Play Me"}>
             <FacebookIcon
               size={32}
               round />
           </FacebookShareButton>
-          <GooglePlusShareButton
-            url={`${config.host}`}
-            quote={"Play Me"}>
-            <GooglePlusIcon
-              size={32}
-              round />
-          </GooglePlusShareButton>
           <TwitterShareButton
-            url={`${config.host}`}
+            url={url}
             quote={"Play Me"}>
             <TwitterIcon
               size={32}
               round />
           </TwitterShareButton>
           <RedditShareButton
-            url={`${config.host}`}
+            url={url}
             quote={"Play Me"}>
             <RedditIcon
               size={32}
               round />
           </RedditShareButton>
           <EmailShareButton
-            url={`${config.host}`}
+            url={url}
             quote={"Play Me"}>
             <EmailIcon
               size={32}
               round />
-          </EmailShareButton> 
+          </EmailShareButton>
         </div>
       </div>
     );

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './SearchResults.css';
-import { connect } from 'react-redux';
-import { setSearchResults } from '../redux/actions.js'
 import SearchResultsItem from './SearchResultsItem.js'
 
 
