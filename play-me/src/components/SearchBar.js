@@ -12,7 +12,8 @@ class SearchBar extends Component {
   }
 
   handleSubmit = (event) => {
-    this.props.search(this.state.value);
+    const searchString = this.state.value.replace(/ /g, '+')
+    this.props.search(searchString);
     this.setState({value: ''})
     event.preventDefault();
   }
