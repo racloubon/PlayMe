@@ -3,12 +3,8 @@ import './SearchResultsItemDetail.css';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setSelectedSong } from '../redux/actions.js'
+import { millisecondsToMinutes } from '../formattingFunctions.js'
 
-function millisecondsToMinutes (milliseconds) {
-  const minutes = Math.floor(milliseconds / 60000);
-  const seconds = ((milliseconds % 60000) / 1000).toFixed(0);
-  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
 
 class SearchResultsItemDetail extends Component {
 

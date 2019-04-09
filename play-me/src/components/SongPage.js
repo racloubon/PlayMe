@@ -4,6 +4,7 @@ import './SongPage.css';
 import { connect } from 'react-redux';
 import { setSelectedSong } from '../redux/actions.js'
 import ShareButtons from './ShareButtons.js'
+import { millisecondsToMinutes } from '../formattingFunctions.js'
 
 class SongPage extends Component {
 
@@ -37,7 +38,7 @@ class SongPage extends Component {
                 <h1>{selectedSong.collectionName}</h1>
                 <h1>{selectedSong.primaryGenreName}</h1>
                 <h1>{selectedSong.releaseDate.slice(0,4)}</h1>
-                <h1>{selectedSong.trackTimeMillis}</h1>
+                <h1>{millisecondsToMinutes(selectedSong.trackTimeMillis)}</h1>
               </div>
               <div className="audioButtons">
                   <button onClick={() => audio.play()}>Play</button>
