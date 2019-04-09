@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setSearchResults } from '../redux/actions.js'
 import SearchResultsItem from './SearchResultsItem.js'
 
+
 class SearchResults extends Component {
 
   render() {

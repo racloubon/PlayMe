@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './SongPage.css';
 import { connect } from 'react-redux';
+import ShareButtons from './ShareButtons.js'
 
 class SongPage extends Component {
 
@@ -23,6 +24,9 @@ class SongPage extends Component {
         <div className="audioButtons">
             <button onClick={() => audio.play()}>Play</button>
             <button onClick={() => audio.pause()}>Pause</button>
+        </div>
+        <div>
+          <ShareButtons />
         </div>
         <div className="backButton">
           <Link to={`/`}><button> Back to Search Results</button></Link>
