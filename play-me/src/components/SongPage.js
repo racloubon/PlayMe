@@ -34,12 +34,14 @@ class SongPage extends Component {
           ? (<div>
               <div className="songInfo">
                 <img src={selectedSong.artworkUrl100} alt={selectedSong.trackName}/>
-                <h1>{selectedSong.trackName}</h1>
-                <h1>{selectedSong.artistName}</h1>
-                <h1>{selectedSong.collectionName}</h1>
-                <h1>{selectedSong.primaryGenreName}</h1>
-                <h1>{selectedSong.releaseDate.slice(0,4)}</h1>
-                <h1>{millisecondsToMinutes(selectedSong.trackTimeMillis)}</h1>
+                <div className="songText">
+                  <h3>{selectedSong.trackName}</h3>
+                  <h3>{selectedSong.artistName}</h3>
+                  <p>{selectedSong.collectionName}</p>
+                  <p>{selectedSong.primaryGenreName}</p>
+                  <p>{selectedSong.releaseDate.slice(0,4)}</p>
+                  <p>{millisecondsToMinutes(selectedSong.trackTimeMillis)}</p>
+                </div>
               </div>
                 <AudioButtons audio={audio} trackId={selectedSong.trackId}/>
               <div>

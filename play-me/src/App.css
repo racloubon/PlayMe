@@ -1,3 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Sonsie+One');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .App {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
+}
+
+h1 {
+  font-family: 'Sonsie One', cursive;
+  padding: 50px;
+  font-size: 50px;
+}
+
+.button.play {
+  border-style: solid;
+  border-color: transparent transparent transparent #333333;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  border-width: 25px 0px 25px 50px;
+  margin-left: 20px;
+}
+
+.button.pause {
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-style: double;
+  border-width: 0px 0px 0px 25px;
+  border-color: #333333;
+}
+
+.button.skip {
+  width: 50px;
+  height: 50px;
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  margin: 10px;
 }

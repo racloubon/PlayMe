@@ -20,7 +20,7 @@ class ShareButtons extends Component {
     const url = `${config.host}/song/${trackId}`
 
     return (
-      <div>
+      <div className="shareButtonsContainer">
         <div className="shareButtonsHeader">
           <p>Share what you're listening to</p>
         </div>

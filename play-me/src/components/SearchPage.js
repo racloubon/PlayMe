@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import './SearchPage.css';
 import { connect } from 'react-redux';
-import { setSearchResults, sortSearchResultsByGenre, sortSearchResultsByPrice, sortSearchResultsByTracklength } from '../redux/actions.js'
+import {
+  setSearchResults,
+  sortSearchResultsByGenreAscending,
+  sortSearchResultsByPriceAscending,
+  sortSearchResultsByTracklengthAscending,
+  sortSearchResultsByGenreDescending,
+  sortSearchResultsByPriceDescending,
+  sortSearchResultsByTracklengthDescending
+} from '../redux/actions.js';
 import SearchBar from './SearchBar.js';
 import SearchResults from './SearchResults';
 
@@ -13,10 +21,21 @@ class SearchPage extends Component {
       .then(response => this.props.setSearchResults(response))
   }
 
-  sort = (criterion) => {
-    if (criterion === 'genre') this.props.sortSearchResultsByGenre([...this.props.searchResults])
-    else if (criterion === 'price') this.props.sortSearchResultsByPrice([...this.props.searchResults])
-    else if (criterion === 'tracklength') this.props.sortSearchResultsByTracklength([...this.props.searchResults])
+  sort = (criterion, direction) => {
+    const {
+      sortSearchResultsByGenreAscending,
+      sortSearchResultsByPriceAscending,
+      sortSearchResultsByTracklengthAscending,
+      sortSearchResultsByGenreDescending,
+      sortSearchResultsByPriceDescending,
+      sortSearchResultsByTracklengthDescending
+    } = this.props
+    if (criterion === 'genre' && direction === 'ascending') sortSearchResultsByGenreAscending()
+    else if (criterion === 'genre' && direction === 'descending') sortSearchResultsByGenreDescending()
+    else if (criterion === 'price' && direction === 'ascending') sortSearchResultsByPriceAscending()
+    else if (criterion === 'price' && direction === 'descending') sortSearchResultsByPriceDescending()
+    else if (criterion === 'tracklength' && direction === 'ascending') sortSearchResultsByTracklengthAscending()
+    else if (criterion === 'tracklength' && direction === 'descending') sortSearchResultsByTracklengthDescending()
   }
 
   render() {
@@ -35,9 +54,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setSearchResults: results => dispatch(setSearchResults(results)),
-  sortSearchResultsByGenre: results => dispatch(sortSearchResultsByGenre(results)),
-  sortSearchResultsByPrice: results => dispatch(sortSearchResultsByPrice(results)),
-  sortSearchResultsByTracklength: results => dispatch(sortSearchResultsByTracklength(results))
+  sortSearchResultsByGenreAscending: results => dispatch(sortSearchResultsByGenreAscending(results)),
+  sortSearchResultsByPriceAscending: results => dispatch(sortSearchResultsByPriceAscending(results)),
+  sortSearchResultsByTracklengthAscending: results => dispatch(sortSearchResultsByTracklengthAscending(results)),
+  sortSearchResultsByGenreDescending: results => dispatch(sortSearchResultsByGenreDescending(results)),
+  sortSearchResultsByPriceDescending: results => dispatch(sortSearchResultsByPriceDescending(results)),
+  sortSearchResultsByTracklengthDescending: results => dispatch(sortSearchResultsByTracklengthDescending(results))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

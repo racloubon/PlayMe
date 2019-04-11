@@ -1,0 +1,12 @@
+.searchResultsItemDetail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.trackDetails {
+  text-align: left;
+  padding: 5px 20px;
+  flex: 2
+}

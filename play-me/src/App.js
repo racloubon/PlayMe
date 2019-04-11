@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        Play Me
+        <h1>Play Me</h1>
         <Router>
           <Route path="/" exact component={SearchPage} />
           <Route path="/song/:id" component={SongPage} />

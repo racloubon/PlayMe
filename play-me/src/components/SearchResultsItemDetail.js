@@ -12,13 +12,17 @@ class SearchResultsItemDetail extends Component {
     const { song, setSelectedSong } = this.props
     return (
       <div className="searchResultsItemDetail">
-        <h3>{song.collectionName}</h3>
-        <h3>{song.releaseDate.slice(0,4 )}</h3>
-        <h3>{song.primaryGenreName}</h3>
-        <h3>{millisecondsToMinutes(song.trackTimeMillis)}</h3>
-        <h3>${song.trackPrice}</h3>
-        <img src={song.artworkUrl100} alt={song.trackName}/>
-        <h1><Link to={`/song/${song.trackId}`} onClick={() => setSelectedSong(song)}> PLAY ME </Link></h1>
+        <div className="trackArtwork">
+          <img src={song.artworkUrl100} alt={song.trackName}/>
+        </div>
+        <div className="trackDetails">
+          <h3>Album: {song.collectionName}</h3>
+          <h3>Released: {song.releaseDate.slice(0,4 )}</h3>
+          <h3>Genre: {song.primaryGenreName}</h3>
+          <h3>Track Length: {millisecondsToMinutes(song.trackTimeMillis)}</h3>
+          <h3>Track Price: ${song.trackPrice}</h3>
+        </div>
+        <Link to={`/song/${song.trackId}`} onClick={() => setSelectedSong(song)}><button className="button play"></button></Link>
 
       </div>
     );

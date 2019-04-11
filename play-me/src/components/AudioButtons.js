@@ -16,12 +16,12 @@ class AudioButtons extends Component {
       <div className="audioButtons">
         {prevTrack ? <Link
           to={`/song/${prevTrack.trackId}`}
-          onClick={() => setSelectedSong(prevTrack)}><button>Previous</button></Link> : ''}
-        <button onClick={() => audio.play()}>Play</button>
-        <button onClick={() => audio.pause()}>Pause</button>
+          onClick={() => setSelectedSong(prevTrack)}><button className="button skip">Prev</button></Link> : ''}
+        <button className="button play" onClick={() => audio.play()}></button>
+        <button className="button pause" onClick={() => audio.pause()}></button>
         {nextTrack ? <Link
           to={`/song/${nextTrack.trackId}`}
-          onClick={() => setSelectedSong(nextTrack)}><button>Next</button></Link> : ''}
+          onClick={() => setSelectedSong(nextTrack)}><button className="button skip">Next</button></Link> : ''}
       </div>
     )
   }

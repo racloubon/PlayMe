@@ -1,0 +1,33 @@
+.songInfo {
+  display: flex;
+  justify-content: center;
+}
+
+.songText {
+  font-size: 12px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.audioButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.shareButtonsHeader {
+  padding: 10px;
+}
+
+.backButton {
+  padding: 10px;
+}
+
+h3 {
+  margin: 0px;
+}
+
+p {
+  margin: 0px;
+}
