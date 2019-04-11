@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './SearchBar.css';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
 
 class SearchBar extends Component {
 
@@ -22,8 +25,22 @@ class SearchBar extends Component {
     return (
       <div className="searchBar">
         <form onSubmit={this.handleSubmit}>
-          <input type="text" id="searchInput" value={this.state.value} onChange={this.handleChange} placeholder="Search for a song, artist, album or genre..." />
-          <input type="submit" id="searchSubmit" value="Go" />
+          <InputGroup
+            className="mb-3"
+            onSubmit={this.handleSubmit}>
+            <FormControl
+              placeholder="Search for a song, artist, album or genre"
+              aria-label="Song search"
+              aria-describedby="basic-addon2"
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+            <InputGroup.Append>
+              <Button
+                variant="outline-secondary"
+                type="submit">Go</Button>
+            </InputGroup.Append>
+          </InputGroup>
         </form>
       </div>
     );

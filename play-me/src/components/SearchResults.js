@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SearchResults.css';
-import SearchResultsItem from './SearchResultsItem.js'
+import SearchResultsItem from './SearchResultsItem.js';
+import CardColumns from 'react-bootstrap/CardColumns'
 
 
 class SearchResults extends Component {
@@ -24,8 +25,12 @@ class SearchResults extends Component {
         }
 
         <div className="searchResultsList">
+          <CardColumns>
           {data.map((song, index) => song.wrapperType === 'track' ? <SearchResultsItem key={index} song={song}/> : null)}
+          </ CardColumns>
         </div>
+
+
       </div>
     );
   }

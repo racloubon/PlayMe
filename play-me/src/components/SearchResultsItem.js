@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SearchResultsItem.css';
-import SearchResultsItemDetail from './SearchResultsItemDetail'
+import SearchResultsItemModal from './SearchResultsItemModal';
+import Card from 'react-bootstrap/Card'
 
 class SearchResultsItem extends Component {
 
@@ -15,9 +16,24 @@ class SearchResultsItem extends Component {
   render() {
     const { song } = this.props;
     return (
-      <div className="searchResultsItem" onClick={this.toggleDetail}>
-        <h3>{song.trackName}, {song.artistName}</h3>
-        {this.state.showDetail ? <SearchResultsItemDetail song={song} /> : ''}
+      <div>
+        <Card
+          style={{ width: '150px' }}
+          onClick={this.toggleDetail}>
+          <Card.Img variant="top" src={song.artworkUrl100} />
+          <Card.Body>
+            <Card.Title>{song.trackName}</Card.Title>
+            <Card.Text>
+              {song.artistName}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <SearchResultsItemModal
+          show={this.state.showDetail}
+          onHide={this.toggleDetail}
+          song={song}
+        />
       </div>
     );
   }
