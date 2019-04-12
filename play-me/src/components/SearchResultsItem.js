@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchResultsItemModal from './SearchResultsItemModal';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
 
 class SearchResultsItem extends Component {
 
@@ -9,11 +9,13 @@ class SearchResultsItem extends Component {
   }
 
   toggleDetail = () => {
-    this.state.showDetail ? this.setState({showDetail: false}) : this.setState({showDetail: true})
+    const { showDetail } = this.state;
+    showDetail ? this.setState({showDetail: false}) : this.setState({showDetail: true})
   }
 
   render() {
     const { song } = this.props;
+    const { showDetail } = this.state
     return (
       <div>
         <Card
@@ -29,7 +31,7 @@ class SearchResultsItem extends Component {
         </Card>
 
         <SearchResultsItemModal
-          show={this.state.showDetail}
+          show={showDetail}
           onHide={this.toggleDetail}
           song={song}
         />
