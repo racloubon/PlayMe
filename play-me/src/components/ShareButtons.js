@@ -23,7 +23,7 @@ class ShareButtons extends Component {
         <div>
           <p>Share what you're listening to</p>
         </div>
-        <div className="horizontalContainer">
+        <div className="horizontalContainer" style={{justifyContent: 'center'}}>
           <FacebookShareButton
             url={url}
             quote={"Play Me"}>
