@@ -19,7 +19,7 @@ const initialState = {
 const searchResults = (state = initialState.searchResults, action) => {
   switch (action.type) {
     case SET_SEARCH_RESULTS:
-      return action.searchResults.results
+      return action.searchResults.results.filter(song => song.kind === "song")
     case SORT_SEARCH_RESULTS_BY_PRICE_ASCENDING:
       return [...state].sort((a,b) => a.trackPrice*100 - b.trackPrice*100)
     case SORT_SEARCH_RESULTS_BY_PRICE_DESCENDING:
