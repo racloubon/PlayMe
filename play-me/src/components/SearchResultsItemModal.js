@@ -25,7 +25,10 @@ class SearchResultsItemModal extends Component {
         </Modal.Header>
         <Modal.Body>
           <div className="horizontalContainer">
-            <img src={song.artworkUrl100} alt={song.trackName}/>
+            <img
+              src={song.artworkUrl100}
+              alt={song.trackName}
+            />
             <div className="verticalContainer">
               <p>Album: {song.collectionName}</p>
               <p>Released: {song.releaseDate.slice(0,4 )}</p>
@@ -36,20 +39,19 @@ class SearchResultsItemModal extends Component {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Link to={`/song/${song.trackId}`}><Button onClick={() => setSelectedSong(song)}>Play</Button></Link>
+          <Link to={`/song/${song.trackId}`}>
+            <Button onClick={() => setSelectedSong(song)}>
+              Play
+            </Button>
+          </Link>
         </Modal.Footer>
       </Modal>
     );
   }
 }
 
-//not needed, holding function for now
-const mapStateToProps = (state) => ({
-  searchResults: state.searchResults,
-})
-
 const mapDispatchToProps = (dispatch) => ({
   setSelectedSong: selectedSong => dispatch(setSelectedSong(selectedSong))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResultsItemModal);
+export default connect(null, mapDispatchToProps)(SearchResultsItemModal);
