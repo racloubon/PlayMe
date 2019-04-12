@@ -1,7 +1,10 @@
 export const SET_SEARCH_RESULTS = "SET_SEARCH_RESULTS";
-export const SORT_SEARCH_RESULTS_BY_GENRE = "SORT_SEARCH_RESULTS_BY_GENRE";
-export const SORT_SEARCH_RESULTS_BY_PRICE = "SORT_SEARCH_RESULTS_BY_PRICE";
-export const SORT_SEARCH_RESULTS_BY_TRACKLENGTH = "SORT_SEARCH_RESULTS_BY_TRACKLENGTH";
+export const SORT_SEARCH_RESULTS_BY_GENRE_ASCENDING = "SORT_SEARCH_RESULTS_BY_GENRE_ASCENDING";
+export const SORT_SEARCH_RESULTS_BY_GENRE_DESCENDING = "SORT_SEARCH_RESULTS_BY_GENRE_DESCENDING";
+export const SORT_SEARCH_RESULTS_BY_PRICE_ASCENDING = "SORT_SEARCH_RESULTS_BY_PRICE_ASCENDING";
+export const SORT_SEARCH_RESULTS_BY_PRICE_DESCENDING = "SORT_SEARCH_RESULTS_BY_PRICE_DESCENDING";
+export const SORT_SEARCH_RESULTS_BY_TRACKLENGTH_ASCENDING = "SORT_SEARCH_RESULTS_BY_TRACKLENGTH_ASCENDING";
+export const SORT_SEARCH_RESULTS_BY_TRACKLENGTH_DESCENDING = "SORT_SEARCH_RESULTS_BY_TRACKLENGTH_DESCENDING";
 export const SET_SELECTED_SONG = "SET_SELECTED_SONG";
 
 export const setSearchResults = searchResults => ({
@@ -9,18 +12,33 @@ export const setSearchResults = searchResults => ({
   searchResults: searchResults
 });
 
-export const sortSearchResultsByGenre = searchResults => ({
-  type: SORT_SEARCH_RESULTS_BY_GENRE,
+export const sortSearchResultsByGenreAscending = searchResults => ({
+  type: SORT_SEARCH_RESULTS_BY_GENRE_ASCENDING,
   searchResults: searchResults
 })
 
-export const sortSearchResultsByPrice = searchResults => ({
-  type: SORT_SEARCH_RESULTS_BY_PRICE,
+export const sortSearchResultsByGenreDescending = searchResults => ({
+  type: SORT_SEARCH_RESULTS_BY_GENRE_DESCENDING,
   searchResults: searchResults
 })
 
-export const sortSearchResultsByTracklength = searchResults => ({
-  type: SORT_SEARCH_RESULTS_BY_TRACKLENGTH,
+export const sortSearchResultsByPriceAscending = searchResults => ({
+  type: SORT_SEARCH_RESULTS_BY_PRICE_ASCENDING,
+  searchResults: searchResults
+})
+
+export const sortSearchResultsByPriceDescending = searchResults => ({
+  type: SORT_SEARCH_RESULTS_BY_PRICE_DESCENDING,
+  searchResults: searchResults
+})
+
+export const sortSearchResultsByTracklengthAscending = searchResults => ({
+  type: SORT_SEARCH_RESULTS_BY_TRACKLENGTH_ASCENDING,
+  searchResults: searchResults
+})
+
+export const sortSearchResultsByTracklengthDescending = searchResults => ({
+  type: SORT_SEARCH_RESULTS_BY_TRACKLENGTH_DESCENDING,
   searchResults: searchResults
 })
 
