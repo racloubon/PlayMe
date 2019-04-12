@@ -9,16 +9,17 @@ import {
   sortSearchResultsByGenreDescending,
   sortSearchResultsByPriceDescending,
   sortSearchResultsByTracklengthDescending
-} from '../redux/actions.js';
-import SearchBar from './SearchBar.js';
+} from '../redux/actions';
+import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 
 class SearchPage extends Component {
 
   search = (term) => {
+    const { setSearchResults } = this.props
     fetch(`https://itunes.apple.com/search?term=${term}`)
       .then(response => response.json())
-      .then(response => this.props.setSearchResults(response))
+      .then(response => setSearchResults(response))
   }
 
   sort = (criterion, direction) => {
@@ -49,10 +50,11 @@ class SearchPage extends Component {
   }
 
   render() {
+    const { searchResults } = this.props
     return (
       <div className="searchPage">
         <SearchBar search={this.search}/>
-        <SearchResults sort={this.sort} data={this.props.searchResults}/>
+        <SearchResults sort={this.sort} data={searchResults}/>
       </div>
     );
   }
