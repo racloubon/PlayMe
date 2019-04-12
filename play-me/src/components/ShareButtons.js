@@ -12,50 +12,44 @@ import {
   EmailIcon,
 } from 'react-share';
 
-class ShareButtons extends Component {
-
-  render() {
-    const { trackId } = this.props
-    const url = `${config.host}/song/${trackId}`
-
-    return (
-      <div className="verticalContainer">
-        <div>
-          <p>Share what you're listening to</p>
-        </div>
-        <div className="horizontalContainer" style={{justifyContent: 'center'}}>
-          <FacebookShareButton
-            url={url}
-            quote={"Play Me"}>
-            <FacebookIcon
-              size={32}
-              round />
-          </FacebookShareButton>
-          <TwitterShareButton
-            url={url}
-            quote={"Play Me"}>
-            <TwitterIcon
-              size={32}
-              round />
-          </TwitterShareButton>
-          <RedditShareButton
-            url={url}
-            quote={"Play Me"}>
-            <RedditIcon
-              size={32}
-              round />
-          </RedditShareButton>
-          <EmailShareButton
-            url={url}
-            quote={"Play Me"}>
-            <EmailIcon
-              size={32}
-              round />
-          </EmailShareButton>
-        </div>
+const ShareButtons = ({ trackId }) => {
+  const url = `${config.host}/song/${trackId}`
+  return (
+    <div className="verticalContainer">
+      <p>Share what you &#39;re listening to</p>
+      <div className="horizontalContainer" style={{justifyContent: 'center'}}>
+        <FacebookShareButton
+          url={url}
+          quote={"Play Me"}>
+          <FacebookIcon
+            size={32}
+            round />
+        </FacebookShareButton>
+        <TwitterShareButton
+          url={url}
+          quote={"Play Me"}>
+          <TwitterIcon
+            size={32}
+            round />
+        </TwitterShareButton>
+        <RedditShareButton
+          url={url}
+          quote={"Play Me"}>
+          <RedditIcon
+            size={32}
+            round />
+        </RedditShareButton>
+        <EmailShareButton
+          url={url}
+          quote={"Play Me"}>
+          <EmailIcon
+            size={32}
+            round />
+        </EmailShareButton>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
 
 export default ShareButtons
