@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import '../App.css';
 import { connect } from 'react-redux';
 import { setSelectedSong } from '../redux/actions.js'
 import Modal from 'react-bootstrap/Modal';
@@ -23,12 +24,16 @@ class SearchResultsItemModal extends Component {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={song.artworkUrl100} alt={song.trackName}/>
-          <p>Album: {song.collectionName}</p>
-          <p>Released: {song.releaseDate.slice(0,4 )}</p>
-          <p>Genre: {song.primaryGenreName}</p>
-          <p>Track Length: {millisecondsToMinutes(song.trackTimeMillis)}</p>
-          <p>Track Price: ${song.trackPrice}</p>
+          <div className="horizontalContainer">
+            <img src={song.artworkUrl100} alt={song.trackName}/>
+            <div className="verticalContainer">
+              <p>Album: {song.collectionName}</p>
+              <p>Released: {song.releaseDate.slice(0,4 )}</p>
+              <p>Genre: {song.primaryGenreName}</p>
+              <p>Track Length: {millisecondsToMinutes(song.trackTimeMillis)}</p>
+              <p>Track Price: ${song.trackPrice}</p>
+            </div>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Link to={`/song/${song.trackId}`}><Button onClick={() => setSelectedSong(song)}>Play</Button></Link>

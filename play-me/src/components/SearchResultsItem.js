@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './SearchResultsItem.css';
 import SearchResultsItemModal from './SearchResultsItemModal';
 import Card from 'react-bootstrap/Card'
 
@@ -22,8 +21,8 @@ class SearchResultsItem extends Component {
           onClick={this.toggleDetail}>
           <Card.Img variant="top" src={song.artworkUrl100} />
           <Card.Body>
-            <Card.Title>{song.trackName}</Card.Title>
-            <Card.Text>
+            <Card.Title style={{fontSize: 14}}>{song.trackName}</Card.Title>
+            <Card.Text style={{fontSize: 11}}>
               {song.artistName}
             </Card.Text>
           </Card.Body>

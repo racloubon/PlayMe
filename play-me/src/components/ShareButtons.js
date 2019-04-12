@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './ShareButtons.css';
 import config from '../config.js'
 
 import {
@@ -20,11 +19,11 @@ class ShareButtons extends Component {
     const url = `${config.host}/song/${trackId}`
 
     return (
-      <div className="shareButtonsContainer">
-        <div className="shareButtonsHeader">
+      <div className="verticalContainer">
+        <div>
           <p>Share what you're listening to</p>
         </div>
-        <div className="shareButtons">
+        <div className="horizontalContainer">
           <FacebookShareButton
             url={url}
             quote={"Play Me"}>

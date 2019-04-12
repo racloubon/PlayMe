@@ -12,6 +12,33 @@ h1 {
   font-size: 50px;
 }
 
+img {
+  align-self: center;
+}
+
+.searchPage {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchResults {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.horizontalContainer {
+  display: flex;
+  padding: 10px;
+}
+
+.verticalContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
 .button.play {
   border-style: solid;
   border-color: transparent transparent transparent #333333;

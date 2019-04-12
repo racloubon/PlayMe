@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SearchPage.css';
+import '../App.css';
 import { connect } from 'react-redux';
 import {
   setSearchResults,
@@ -29,13 +29,23 @@ class SearchPage extends Component {
       sortSearchResultsByGenreDescending,
       sortSearchResultsByPriceDescending,
       sortSearchResultsByTracklengthDescending
-    } = this.props
-    if (criterion === 'genre' && direction === 'ascending') sortSearchResultsByGenreAscending()
-    else if (criterion === 'genre' && direction === 'descending') sortSearchResultsByGenreDescending()
-    else if (criterion === 'price' && direction === 'ascending') sortSearchResultsByPriceAscending()
-    else if (criterion === 'price' && direction === 'descending') sortSearchResultsByPriceDescending()
-    else if (criterion === 'tracklength' && direction === 'ascending') sortSearchResultsByTracklengthAscending()
-    else if (criterion === 'tracklength' && direction === 'descending') sortSearchResultsByTracklengthDescending()
+    } = this.props;
+    switch (criterion) {
+      case 'priceAscending':
+        return sortSearchResultsByPriceAscending()
+      case 'priceDescending':
+        return sortSearchResultsByPriceDescending()
+      case 'genreAscending':
+        return sortSearchResultsByGenreAscending()
+      case 'genreDescending':
+        return sortSearchResultsByGenreDescending()
+      case 'tracklengthAscending':
+        return  sortSearchResultsByTracklengthAscending()
+      case 'tracklengthDescending':
+        return  sortSearchResultsByTracklengthDescending()
+      default:
+        return
+    }
   }
 
   render() {
@@ -54,12 +64,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setSearchResults: results => dispatch(setSearchResults(results)),
-  sortSearchResultsByGenreAscending: results => dispatch(sortSearchResultsByGenreAscending(results)),
-  sortSearchResultsByPriceAscending: results => dispatch(sortSearchResultsByPriceAscending(results)),
-  sortSearchResultsByTracklengthAscending: results => dispatch(sortSearchResultsByTracklengthAscending(results)),
-  sortSearchResultsByGenreDescending: results => dispatch(sortSearchResultsByGenreDescending(results)),
-  sortSearchResultsByPriceDescending: results => dispatch(sortSearchResultsByPriceDescending(results)),
-  sortSearchResultsByTracklengthDescending: results => dispatch(sortSearchResultsByTracklengthDescending(results))
+  sortSearchResultsByGenreAscending: () => dispatch(sortSearchResultsByGenreAscending()),
+  sortSearchResultsByPriceAscending: () => dispatch(sortSearchResultsByPriceAscending()),
+  sortSearchResultsByTracklengthAscending: () => dispatch(sortSearchResultsByTracklengthAscending()),
+  sortSearchResultsByGenreDescending: () => dispatch(sortSearchResultsByGenreDescending()),
+  sortSearchResultsByPriceDescending: () => dispatch(sortSearchResultsByPriceDescending()),
+  sortSearchResultsByTracklengthDescending: () => dispatch(sortSearchResultsByTracklengthDescending())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
