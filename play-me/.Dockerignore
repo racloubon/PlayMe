@@ -1,0 +1,12 @@
+### Git ###
+.git*
+
+### Node.js ###
+# Dependency directories
+node_modules
+
+### Project ###
+# Metafiles
+.dockerignore
+Dockerfile
+docker-compose.yml
