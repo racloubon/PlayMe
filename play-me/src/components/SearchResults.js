@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SearchResultsItem from './SearchResultsItem.js';
 import Dropdown from 'react-bootstrap/Dropdown';
 import CardGroup from 'react-bootstrap/CardGroup';
