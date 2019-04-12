@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import './SongPage.css';
 import { connect } from 'react-redux';
-import { setSelectedSong } from '../redux/actions.js'
-import ShareButtons from './ShareButtons.js'
-import AudioButtons from './AudioButtons.js'
-import { millisecondsToMinutes } from '../formattingFunctions.js'
+import './SongPage.css';
+import { setSelectedSong } from '../redux/actions'
+import ShareButtons from './ShareButtons'
+import AudioButtons from './AudioButtons'
+import { millisecondsToMinutes } from '../formattingFunctions'
 
 class SongPage extends Component {
 
@@ -33,7 +33,9 @@ class SongPage extends Component {
         {selectedSong.trackName
           ? (<div>
               <div className="songInfo">
-                <img src={selectedSong.artworkUrl100} alt={selectedSong.trackName}/>
+                <img
+                  src={selectedSong.artworkUrl100}
+                  alt={selectedSong.trackName}/>
                 <div className="songText">
                   <h3>{selectedSong.trackName}</h3>
                   <h3>{selectedSong.artistName}</h3>
@@ -43,12 +45,18 @@ class SongPage extends Component {
                   <p>{millisecondsToMinutes(selectedSong.trackTimeMillis)}</p>
                 </div>
               </div>
-                <AudioButtons audio={audio} trackId={selectedSong.trackId}/>
+                <AudioButtons
+                  audio={audio}
+                  trackId={selectedSong.trackId}/>
               <div>
                 <ShareButtons trackId={selectedSong.trackId} />
               </div>
               <div className="backButton">
-                <Link to={`/`}><button> Back to Search</button></Link>
+                <Link to={`/`}>
+                  <button>
+                    Back to Search
+                  </button>
+                </Link>
               </div>
             </div>)
           : <div>LOADING...</div>
