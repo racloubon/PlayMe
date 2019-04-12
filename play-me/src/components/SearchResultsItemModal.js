@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setSelectedSong } from '../redux/actions.js'
 import Modal from 'react-bootstrap/Modal';
@@ -30,7 +31,7 @@ class SearchResultsItemModal extends Component {
           <p>Track Price: ${song.trackPrice}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button href={`/song/${song.trackId}`} onClick={() => setSelectedSong(song)}>Play</Button>
+          <Link to={`/song/${song.trackId}`}><Button onClick={() => setSelectedSong(song)}>Play</Button></Link>
         </Modal.Footer>
       </Modal>
     );
