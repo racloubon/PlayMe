@@ -10,8 +10,8 @@ const App = () => {
       <h1>Play Me</h1>
       <Router>
         <Route
-          path="/"
-          exact component={SearchPage} />
+          path="/" exact
+          component={SearchPage} />
         <Route
           path="/song/:id"
           component={SongPage} />
