@@ -14,13 +14,16 @@ class SearchBar extends Component {
   }
 
   handleSubmit = (event) => {
-    const searchString = this.state.value.replace(/ /g, '+')
-    this.props.search(searchString);
+    const { value } = this.state;
+    const { search } = this.props;
+    const searchString = value.replace(/ /g, '+')
+    search(searchString);
     this.setState({value: ''})
     event.preventDefault();
   }
 
   render() {
+    const { value } = this.state;
     return (
       <div className="searchBar">
         <form onSubmit={this.handleSubmit}>
@@ -31,7 +34,7 @@ class SearchBar extends Component {
               placeholder="Search for a song, artist, album or genre"
               aria-label="Song search"
               aria-describedby="basic-addon2"
-              value={this.state.value}
+              value={value}
               onChange={this.handleChange}
             />
             <InputGroup.Append>
